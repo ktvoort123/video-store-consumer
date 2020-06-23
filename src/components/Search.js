@@ -1,7 +1,7 @@
 import React ,{useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import Customer from './Customer';
+import Movie from './Movie';
 
 
 const Search = (props) => {
@@ -11,47 +11,43 @@ const Search = (props) => {
 
   const url = "http://localhost:3000";
 
-  const onButtonClick = () => props.setSelectedCustomerCallback(props.name);
+  const onSearchTermChange = (event) => {
+    setMovieSearchTerm(event.target.value);
 
+  };
+    console.log(movieSearchTerm)
 
-  useEffect(() => {
-    fetchMovies();
-  }, []);
+    useEffect(() => {
+      fetchMovies();
+    }, [movieSearchTerm]);
 
-  const fetchMovies = () => {
-    axios.get(url + "/movies?query=" + movieSearchTerm)
-    .then( (response) => {
-      setMovieResults(response.data);
-    })
-    .catch((error) => {
-      setErrorMessage(error.message);
-    });
-  }
+    const fetchMovies = () => {
+      axios.get(url + "/movies?query=" + movieSearchTerm)
+      .then( (response) => {
+        setMovieResults(response.data);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+    }
 
-  const listMovieResults = () => {
-    const processed = movieResults.map(movieResult => {
-      return(
-        <Movie key={movieResult.id} title={movieResult.title} description={movieResult.description} id={movieResult.id} />
-      );
-    })
-    return processed;
-  }
-
+    const listMovies = () => {
+      const processed = movieResults.map(movie => {
+        return(
+          <Movie key={movie.id} title={movie.title} overview={movie.overview} />
+        );
+      })
+      return processed;
+    }
 
   return (
     <div>
       <h1>Movie Search</h1> 
-      <form onSubmit={onButtonClick}>
-        <label>
-          Movie Title:
-          <input type="text" value={movieSearchTerm}/>
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <input value={movieSearchTerm} onChange={onSearchTermChange} />
       <h3>Results:</h3>
       <ul>
-        {movieResults}
-      </ul>
+        {listMovies()}
+      </ul> 
     </div>
   )
 };
