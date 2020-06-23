@@ -8,6 +8,11 @@ const Movie = (props) => {
     <div className="movie" id={props.id} >
       <h4>{props.title}</h4>
       <p>{props.overview}</p>
+      {/* <button onClick={props.onSelect} id={props.id} type="movie">
+        Select Movie
+      </button> */}
+
+      <button onClick={(e) => props.makeSelectionCallback("movie", props.title, e)}>Select Movie</button>
     </div>
   )
 }

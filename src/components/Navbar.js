@@ -25,7 +25,7 @@ const Navbar = () => {
       </button>
     </Link>
 
-    <Link to="/customer">
+    <Link to="/customers">
       <button variant="outlined">
         Customers
       </button>

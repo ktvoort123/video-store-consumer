@@ -4,7 +4,7 @@ import axios from 'axios';
 import Customer from './Customer';
 
 
-const Customers = () => {
+const Customers = (props) => {
   const [customers, setCustomers] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -27,7 +27,7 @@ const Customers = () => {
   const listCustomers = () => {
     const processed = customers.map(customer => {
       return(
-        <Customer key={customer.id} name={customer.name} overview={customer.overview}  />
+        <Customer key={customer.id} name={customer.name} phone={customer.phone} makeSelectionCallback={props.makeSelectionCallback} />
       );
     })
     return processed;
@@ -36,30 +36,14 @@ const Customers = () => {
 
   return (
     <div>
-      <h1>Movies Library</h1> 
+      <h1>List of Customers</h1> 
       {listCustomers()}
     </div>
   )
 };
-};
 
 
 export default Customers;
-
-
-
-      // const customerDataFromAPI = response.data.map( (customer) => {
-        //       return({name: customer.customer.name,
-        //       address: customer.customer.address,
-        //       city: customer.customer.city,
-        //       state: customer.customer.state,
-        //       postal_code: customer.customer.postal_code,
-        //       phone: customer.customer.phone,
-        //       account_credit: customer.customer.account_credit,
-        //       movies_checked_out_count: customer.customer.movies_checked_out_count,
-        //       id: customer.customer.id,
-        //       })
-        // })
 
 
           // const customers = customers.map( (customer) => {
