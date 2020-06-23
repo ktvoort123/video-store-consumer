@@ -36,6 +36,7 @@ const Library = () => {
 
   return (
     <div>
+      <h1>Movies Library</h1> 
       {listMovies()}
     </div>
   )
