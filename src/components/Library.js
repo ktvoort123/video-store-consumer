@@ -5,7 +5,7 @@ import axios from 'axios';
 import Movie from './Movie';
 
 
-const Library = () => {
+const Library = (props) => {
   const [movies, setMovies] = useState([]);
 
   const url = "http://localhost:3000";
@@ -27,7 +27,7 @@ const Library = () => {
   const listMovies = () => {
     const processed = movies.map(movie => {
       return(
-        <Movie key={movie.id} title={movie.title} overview={movie.overview}  />
+        <Movie key={movie.id} title={movie.title} overview={movie.overview} makeSelectionCallback={props.makeSelectionCallback} />
       );
     })
     return processed;
@@ -36,6 +36,7 @@ const Library = () => {
 
   return (
     <div>
+      <h1>Movies Library</h1> 
       {listMovies()}
     </div>
   )
