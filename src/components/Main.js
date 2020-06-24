@@ -14,11 +14,11 @@ const Main = (props) => {
   return (
     <Switch> 
       <Route exact path='/' component={Home}></Route>
-      <Route exact path='/Search' component={Search}></Route>
-      <Route exact path='/Library' component={() => <Library makeSelectionCallback={props.makeSelectionCallback} />}></Route>    
-      <Route exact path='/Customers' component={() => <Customers makeSelectionCallback={props.makeSelectionCallback} />}></Route>
+      <Route exact path='/home' component={Home}></Route>
+  <Route exact path='/search' component={() => <Search addToLibraryCallback={props.addToLibraryCallback} />}></Route>
+      <Route exact path='/library' component={() => <Library makeSelectionCallback={props.makeSelectionCallback} />}></Route>    
+      <Route exact path='/customers' component={() => <Customers makeSelectionCallback={props.makeSelectionCallback} />}></Route>
       <Route><NotFound /></Route>
-
     </Switch>
   );
 }
