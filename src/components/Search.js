@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Movie from './Movie';
 
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import './Search.css';
+
 
 const Search = (props) => {
   const [movieSearchTerm, setMovieSearchTerm] = useState([]);
@@ -34,21 +38,29 @@ const Search = (props) => {
     const listMovies = () => {
       const processed = movieResults.map(movie => {
         return(
-          <Movie key={movie.id} title={movie.title} overview={movie.overview} />
+          <Movie key={movie.id} title={movie.title} overview={movie.overview} onButtonClick={props.addToLibraryCallback}/>
         );
       })
       return processed;
     }
 
   return (
-    <div>
-      <h1>Movie Search</h1> 
-      <input value={movieSearchTerm} onChange={onSearchTermChange} />
-      <h3>Results:</h3>
-      <ul>
-        {listMovies()}
-      </ul> 
-    </div>
+    <Row className="home h-100">
+      <Col>
+        <Row>
+        <h2>Search Page</h2>
+        </Row>
+        <Row>
+          <input value={movieSearchTerm} onChange={onSearchTermChange} />
+        </Row>
+        <Row>
+          <h3>Results:</h3>
+            <ul>
+              {listMovies()}
+            </ul> 
+        </Row>
+      </Col>
+    </Row>
   )
 };
 

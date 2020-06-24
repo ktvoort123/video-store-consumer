@@ -27,7 +27,7 @@ const Library = (props) => {
   const listMovies = () => {
     const processed = movies.map(movie => {
       return(
-        <Movie key={movie.id} title={movie.title} overview={movie.overview} makeSelectionCallback={props.makeSelectionCallback} />
+        <Movie inventory={movie.inventory} key={movie.id} title={movie.title} overview={movie.overview} inventory={movie.inventory} makeSelectionCallback={props.makeSelectionCallback} />
       );
     })
     return processed;
