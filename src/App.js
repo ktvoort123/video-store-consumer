@@ -34,18 +34,18 @@ const App = () => {
   return (
     <div className="App container-fluid h-100 d-flex flex-column">
 
-        <Header />
+        <Header /> 
         <Main
           makeSelectionCallback={makeSelection}
           addToLibraryCallback={addToLibrary}
-          // setSelectedCustomerCallback={setSelectedCustomer}
-          // setSelectedMovieCallback={setSelectedMovie}
         />
+
+        { (selectedCustomer || selectedMovie) && 
         <Selections 
-          selectedCustomer={selectedCustomer}
-          selectedMovie={selectedMovie}
-        />
-      
+          selectedCustomer={selectedCustomer} 
+          selectedMovie={selectedMovie}> 
+        </Selections>
+        }
     </div>
   );
 };

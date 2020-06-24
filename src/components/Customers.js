@@ -1,4 +1,4 @@
-import React ,{useState, useEffect} from 'react';
+import React ,{useState, useEffect, useLayoutEffect} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Customer from './Customer';
@@ -10,7 +10,7 @@ const Customers = (props) => {
 
   const url = "http://localhost:3000";
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchCustomers();
   }, []);
 

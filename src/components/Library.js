@@ -1,4 +1,4 @@
-import React ,{useState, useEffect} from 'react';
+import React ,{useState, useEffect, useLayoutEffect} from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -10,11 +10,12 @@ const Library = (props) => {
 
   const url = "http://localhost:3000";
 
-  useEffect(() => {
+  useEffect (() => {
     fetchMovies();
   }, []);
 
   const fetchMovies = () => {
+    console.log("fetching movies from db with axios");
     axios.get(url + "/movies")
     .then( (response) => {
       setMovies(response.data);
@@ -27,7 +28,7 @@ const Library = (props) => {
   const listMovies = () => {
     const processed = movies.map(movie => {
       return(
-        <Movie inventory={movie.inventory} key={movie.id} title={movie.title} overview={movie.overview} inventory={movie.inventory} makeSelectionCallback={props.makeSelectionCallback} />
+        <Movie key={movie.id} title={movie.title} overview={movie.overview} inventory={movie.inventory} makeSelectionCallback={props.makeSelectionCallback} />
       );
     })
     return processed;
