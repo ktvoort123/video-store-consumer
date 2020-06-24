@@ -8,7 +8,7 @@ const Customer = (props) => {
     <div className="customer" id={props.id} >
       <h4>{props.name}</h4>
       <p>{props.phone}</p>
-      <button onClick={(e) => props.makeSelectionCallback("customer", props.name, e)}>Select Customer</button>
+      <button onClick={(e) => props.makeSelectionCallback("customer", {name: props.name, customer_id: props.id}, e)}>Select Customer</button>
     </div>
   )
 };

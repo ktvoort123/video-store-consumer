@@ -27,7 +27,7 @@ const Customers = (props) => {
   const listCustomers = () => {
     const processed = customers.map(customer => {
       return(
-        <Customer key={customer.id} name={customer.name} phone={customer.phone} makeSelectionCallback={props.makeSelectionCallback} />
+        <Customer id={customer.id} key={customer.id} name={customer.name} phone={customer.phone} makeSelectionCallback={props.makeSelectionCallback} />
       );
     })
     return processed;

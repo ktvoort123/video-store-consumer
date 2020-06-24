@@ -35,10 +35,6 @@ const App = () => {
   // }, []);
 
   const addToLibrary = (event) => {
-    console.log("------------------------------------------")
-    console.log(event)
-    console.log("------------------------------------------")
-
     axios.post(url + "/movies", event)
     .then( (response) => {
       console.log(response);
