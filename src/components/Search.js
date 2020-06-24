@@ -38,7 +38,7 @@ const Search = (props) => {
     const listMovies = () => {
       const processed = movieResults.map(movie => {
         return(
-          <Movie key={movie.id} title={movie.title} overview={movie.overview} onButtonClick={props.addToLibraryCallback}/>
+          <Movie type="db" key={movie.external_id} title={movie.title} overview={movie.overview} release_date={movie.release_date} image_url={movie.image_url} external_id={movie.external_id} addToLibraryCallback={props.addToLibraryCallback}/>
         );
       })
       return processed;

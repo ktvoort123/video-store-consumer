@@ -2,6 +2,7 @@ import React, { Component, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 import Container from 'react-bootstrap/Container'
 
@@ -27,9 +28,25 @@ const App = () => {
     };
   };
 
-  const addToLibrary = (e) => {
-    //Axios POST request here??
-  };
+  const url = "http://localhost:3000";
+
+  // useEffect(() => {
+  //   addToLibrary();
+  // }, []);
+
+  const addToLibrary = (event) => {
+    console.log("------------------------------------------")
+    console.log(event)
+    console.log("------------------------------------------")
+
+    axios.post(url + "/movies", event)
+    .then( (response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+  }
 
   return (
     <div className="App container-fluid h-100 d-flex flex-column">
