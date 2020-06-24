@@ -8,6 +8,7 @@ import Home from '../components/Home';
 import Search from '../components/Search';
 import Library from '../components/Library';
 import Customers from '../components/Customers';
+import NotFound from '../components/NotFound';
 
 const Main = (props) => {
   return (
@@ -16,6 +17,7 @@ const Main = (props) => {
       <Route exact path='/Search' component={Search}></Route>
       <Route exact path='/Library' component={() => <Library makeSelectionCallback={props.makeSelectionCallback} />}></Route>    
       <Route exact path='/Customers' component={() => <Customers makeSelectionCallback={props.makeSelectionCallback} />}></Route>
+      <Route><NotFound /></Route>
 
     </Switch>
   );

@@ -1,41 +1,47 @@
 import React ,{useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import Nav from 'react-bootstrap/Nav';
 
 const Navbar = () => {
   
   return (
-
     <div>
-    <Link to="/">
-      <button variant="outlined">
-        Home
-      </button>
-    </Link>
+      <Nav>
+        <Nav.Item>
+          <Nav.Link>
+            <Link to="/">
+            Home
+            </Link>
+          </Nav.Link>
+        </Nav.Item>
 
-    <Link to="/search">
-      <button variant="outlined">
-        Search
-      </button>
-    </Link>
+        <Nav.Item>
+          <Nav.Link>
+            <Link to="/search">
+            Search
+            </Link>
+          </Nav.Link>
+        </Nav.Item>
 
-    <Link to="/library">
-      <button variant="outlined">
-        Library
-      </button>
-    </Link>
+        <Nav.Item>
+          <Nav.Link>
+            <Link to="/library">
+            Library
+            </Link>
+          </Nav.Link>
+        </Nav.Item>
 
-    <Link to="/customers">
-      <button variant="outlined">
-        Customers
-      </button>
-    </Link>
-
+        <Nav.Item>
+          <Nav.Link>
+            <Link to="/customers">
+            Customers
+            </Link>
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
     </div>
-
- 
   )
 }
-
 
 export default Navbar;
