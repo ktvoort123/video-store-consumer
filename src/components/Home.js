@@ -11,20 +11,20 @@ const Home = (props) => {
     <Row className="home h-100">
       <Col className="col-md-6">
       <h2>Video Store</h2>
-        <ul>
+      <ul class="big_links">
           <li>
             <Link to="/search">
-              Search
+              Add Movie to Library
             </Link>
           </li>
           <li>
             <Link to="/library">
-              Library
+              Select Movie
             </Link>
           </li>
           <li>
             <Link to="/customers">
-              Customers
+              Select Customer
             </Link>
           </li>
         </ul>

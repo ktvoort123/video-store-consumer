@@ -5,34 +5,15 @@ import Customer from './Customer';
 
 
 const Customers = (props) => {
-  const [customers, setCustomers] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null);
-
-  const url = "http://localhost:3000";
-
-  useLayoutEffect(() => {
-    fetchCustomers();
-  }, []);
-
-  const fetchCustomers = () => {
-    axios.get(url + "/customers")
-    .then( (response) => {
-      setCustomers(response.data);
-    })
-    .catch((error) => {
-      setErrorMessage(error.message);
-    });
-  }
 
   const listCustomers = () => {
-    const processed = customers.map(customer => {
+    const processed = props.customers.map(customer => {
       return(
         <Customer id={customer.id} key={customer.id} name={customer.name} phone={customer.phone} makeSelectionCallback={props.makeSelectionCallback} />
       );
     })
     return processed;
   }
-
 
   return (
     <div>

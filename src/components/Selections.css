@@ -1,4 +1,29 @@
 .selections {
   min-height: 10vh;
-  background-color: lightslategray;
+  background-color: rgb(44, 141, 238);
+}
+
+.selections p {
+  color: #fff;
+  padding: 2%;
+  font-size: 1.3em;
+  text-decoration: underline;
+}
+
+.selections button {
+  border: 0px;
+  margin: 0 auto;
+}
+
+.selections span {
+  margin-right: 5px;
+}
+.triangle-container {
+  margin: 5px auto;
+}
+.triangle{
+  fill: white;
+  stroke: white;
+  stroke-width: 6;
+  stroke-linejoin: round;
 }

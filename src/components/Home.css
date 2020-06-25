@@ -1,4 +1,14 @@
 .home {
-  background-color: salmon;
   min-height: 100%;
+}
+
+.big_links a {
+  font-family: Dosis;
+  font-weight: 600;
+  font-size: 4em;
+  color: #F4480E;
+}
+
+.big_links li {
+  list-style: none;
 }
