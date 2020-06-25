@@ -31,10 +31,10 @@ const Selection = (props) => {
   return (
       <Row className="selections fixed-bottom">
         <Col className="col-md-5">
-          <p>Selected Customer: {props.selectedCustomer ? props.selectedCustomer.name : 'No Customer Selected'}</p>
+          <p>Selected Customer: {props.selectedCustomer ? props.selectedCustomer.name : <Link to="/customers" className="warning">Select Customer</Link>}</p>
         </Col>
         <Col className="col-md-5">
-          <p>Selected Movie: {props.selectedMovie ? props.selectedMovie : 'No Movie Selected'}</p>
+          <p>Selected Movie: {props.selectedMovie ? props.selectedMovie : <Link to="/library" className="warning">Select Movie</Link>}</p>
         </Col>
         <Col className="col-md-2">
 

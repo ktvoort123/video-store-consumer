@@ -1,5 +1,8 @@
 import React ,{useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 
 const Movie = (props) => {  
 
@@ -29,31 +32,34 @@ const Movie = (props) => {
   };
 
   return (
-    <div className="movie" id={props.id} >
-      <h4>{props.title}</h4>
-      <p>{props.image_url}</p>
+    <Row className="movie container" id={props.id} >
+      <Col className="col-md-4">
       <img src={props.image_url} alt="movie-img" />
+      </Col>
+      <Col className="col-md-4">
+      <h4>{props.title}</h4>
       <p>{props.overview}</p>
-       {  props.type=="db" ?
-         <form className="new-student-form" onSubmit={onFormSubmit}>
-              <div>
-                <label htmlFor="inventory">Inventory:</label>
-                <input
-                  name="inventory"
-                  onChange={onInputChange}
-                  value={formFields.inventory}
-                />
-              </div>
-              <input type="submit" value="Add to Library" />
-            </form>   :
-            <p>Inventory: {props.inventory}</p>
-}
-
+      </Col>
+      <Col className="col-md-4">
+        {props.type == "db" ?
+          <form className="new-student-form" onSubmit={onFormSubmit}>
+            <div>
+              <label htmlFor="inventory">Inventory:</label>
+              <input
+                name="inventory"
+                onChange={onInputChange}
+                value={formFields.inventory}
+              />
+            </div>
+            <input type="submit" value="Add to Library" />
+          </form> :
+          <p>Inventory: {props.inventory}</p>
+        }
       { props.type != "db" && 
-      <button onClick={(e) => props.makeSelectionCallback("movie", props.title, e)}>Select Movie</button> 
+      <Button onClick={(e) => props.makeSelectionCallback("movie", props.title, e)}>Select {props.title}</Button> 
       }
-
-  </div>
+      </Col>
+  </Row>
   )
 }
 

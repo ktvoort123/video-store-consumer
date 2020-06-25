@@ -97,6 +97,7 @@ const App = (props) => {
   const clearSelections = () => {
     setSelectedMovie(null)
     setSelectedCustomer(null)
+    fetchMovies();
   };
 
   
@@ -105,7 +106,7 @@ const App = (props) => {
         { location.pathname !== "/" &&
         <Header /> 
         }
-        <Main
+        <Main className="container"
           movies = {movies}
           customers = {customers}
           makeSelectionCallback={makeSelection}

@@ -5,6 +5,7 @@ import Movie from './Movie';
 
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
 import './Search.css';
 
 const Search = (props) => {
@@ -54,22 +55,18 @@ const Search = (props) => {
     }
 
   return (
-    <Row className="home h-100">
-      <Col>
-        <Row>
-        <h2>Search Page</h2>
-        </Row>
-        <Row>
-          <input value={movieSearchTerm} onChange={onSearchTermChange} />
-        </Row>
-        <Row>
-          <h3>Results:</h3>
-            <ul>
-              {listMovies()}
-            </ul> 
-        </Row>
-      </Col>
-    </Row>
+    <div>
+      <h2>Search Page</h2>
+      <Form>
+        <Form.Group>
+          <Form.Control size="lg" type="text" placeholder="Search for a movie" value={movieSearchTerm} onChange={onSearchTermChange} />
+        </Form.Group>
+      </Form>
+      <h3>Results:</h3>
+        <ul>
+          {listMovies()}
+        </ul> 
+    </div>
   )
 };
 
