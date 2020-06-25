@@ -10,10 +10,6 @@ const Library = (props) => {
 
   const url = "http://localhost:3000";
 
-  useEffect (() => {
-    fetchMovies();
-  }, []);
-
   const fetchMovies = () => {
     console.log("fetching movies from db with axios");
     axios.get(url + "/movies")
@@ -24,6 +20,12 @@ const Library = (props) => {
       console.log(`ERROR: ${error}`)
     });
   }
+
+  useEffect (() => {
+    fetchMovies();
+  }, []);
+
+
 
   const listMovies = () => {
     const processed = movies.map(movie => {

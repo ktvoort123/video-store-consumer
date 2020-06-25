@@ -48,6 +48,7 @@ const App = () => {
     <div className="App container-fluid h-100 d-flex flex-column">
 
         <Header /> 
+        
         <Main
           makeSelectionCallback={makeSelection}
           addToLibraryCallback={addToLibrary}
