@@ -42,7 +42,7 @@ const Selection = (props) => {
         <div className="triangle-container">
           <button onClick={createRental}>
             <span>Checkout</span>
-            <svg onClick={createRental} height="60" width="45">
+            <svg height="60" width="45">
 		        <polygon points="0,10 30,30 0,50" className="triangle" />
 	        </svg></button>
         </div>

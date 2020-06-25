@@ -53,7 +53,7 @@ const Movie = (props) => {
             </div>
             <input type="submit" value="Add to Library" />
           </form> :
-          <p>Inventory: {props.inventory}</p>
+          <p>Available Inventory: {props.available_inventory}</p>
         }
       { props.type != "db" && 
       <Button onClick={(e) => props.makeSelectionCallback("movie", props.title, e)}>Select {props.title}</Button> 

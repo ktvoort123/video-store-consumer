@@ -10,7 +10,7 @@ const Library = (props) => {
   const listMovies = () => {
     const processed = props.movies.map(movie => {
       return(
-        <Movie key={movie.id} title={movie.title} overview={movie.overview} inventory={movie.inventory} image_url={movie.image_url} makeSelectionCallback={props.makeSelectionCallback} />
+        <Movie key={movie.id} title={movie.title} overview={movie.overview} available_inventory={movie.available_inventory} image_url={movie.image_url} makeSelectionCallback={props.makeSelectionCallback} />
       );
     })
     return processed;
