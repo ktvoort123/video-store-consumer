@@ -43,11 +43,8 @@ const Selection = (props) => {
             <svg onClick={createRental} height="60" width="45">
 		        <polygon points="0,10 30,30 0,50" class="triangle" />
 	        </svg></button>
-          {/* <a href="#" onClick={createRental}> */}
-	        
-          {/* </a> */}
         </div>
-          {/* <button onClick={createRental}>Checkout Rental</button> */}
+          
         </Col>
       </Row> 
   )

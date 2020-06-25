@@ -10,8 +10,13 @@ import Main from './components/Main';
 import Header from './components/Header';
 import Selections from './components/Selections';
 
+import {
+  useLocation
+} from "react-router-dom";
+
 
 const App = (props) => {
+  const location = useLocation();
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -74,10 +79,27 @@ const App = (props) => {
     });
   }
 
+  const findPageName = () => {
+    let name = ""
+    switch(location.pathname) {
+      case "/":
+        name = "home"
+        console.log("classname: home")
+        break;
+      default:
+        name = location.pathname.substr(1)
+        console.log(name)
+    }
 
+    return name;
+  };
+
+  
   return (
-    <div className="App container-fluid h-100 d-flex flex-column">
+    <div className={"App container-fluid h-100 d-flex flex-column page__" + findPageName()}>
+        { location.pathname !== "/" &&
         <Header /> 
+        }
         <Main
           movies = {movies}
           customers = {customers}
