@@ -4,7 +4,6 @@ import Col from 'react-bootstrap/Col'
 import './Home.css';
 import { Link } from "react-router-dom";
 
-
 const Home = (props) => {
   
   return (

@@ -20,6 +20,7 @@ const Selection = (props) => {
     axios.post(`http://localhost:3000/rentals/${props.selectedMovie}/check-out?customer_id=${props.selectedCustomer.customer_id}&due_date=2021-01-10`)
     .then( (response) => {
       console.log(response);
+      props.clearSelectionsCallback();
     })
     .catch((error) => {
       console.log(error.message);

@@ -48,6 +48,7 @@ const App = (props) => {
   }
 
   const fetchCustomers = () => {
+    console.log("fetching customers from db with axios");
     axios.get(url + "/customers")
     .then( (response) => {
       setCustomers(response.data);
@@ -90,8 +91,12 @@ const App = (props) => {
         name = location.pathname.substr(1)
         console.log(name)
     }
-
     return name;
+  };
+
+  const clearSelections = () => {
+    setSelectedMovie(null)
+    setSelectedCustomer(null)
   };
 
   
@@ -110,7 +115,8 @@ const App = (props) => {
         { (selectedCustomer || selectedMovie) && 
         <Selections 
           selectedCustomer={selectedCustomer} 
-          selectedMovie={selectedMovie}> 
+          selectedMovie={selectedMovie}
+          clearSelectionsCallback={clearSelections}>
         </Selections>
         }
     </div>
