@@ -36,7 +36,8 @@ const Selection = (props) => {
           <p>Selected Movie: {props.selectedMovie ? props.selectedMovie : 'No Movie Selected'}</p>
         </Col>
         <Col className="col-md-2">
-      
+
+        { (props.selectedCustomer && props.selectedMovie) &&
         <div className="triangle-container">
           <button onClick={createRental}>
             <span>Checkout</span>
@@ -44,6 +45,7 @@ const Selection = (props) => {
 		        <polygon points="0,10 30,30 0,50" class="triangle" />
 	        </svg></button>
         </div>
+        }
           
         </Col>
       </Row> 

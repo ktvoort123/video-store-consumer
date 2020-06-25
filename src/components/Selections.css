@@ -27,8 +27,8 @@
   margin: 5px auto;
 }
 .triangle{
-  fill: white;
-  stroke: white;
+  fill: #0EB13C;
+  stroke: #0EB13C;
   stroke-width: 6;
   stroke-linejoin: round;
 }
