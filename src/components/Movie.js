@@ -13,20 +13,18 @@ const Movie = (props) => {
   });
 
   // event handlers
-  const onInputChange = event => {
+  const onInputChange = (event) => {
     console.log(`Changing field ${event.target.name} to ${event.target.value}`);
     // Duplicate formFields into new object
     const newFormFields = {
       ...formFields
     };
-
     newFormFields[event.target.name] = event.target.value;
     setFormFields(newFormFields);
   };
 
   const onFormSubmit = event => {
     event.preventDefault();
-
     props.addToLibraryCallback(formFields);
   };
 
@@ -34,7 +32,7 @@ const Movie = (props) => {
     <div className="movie" id={props.id} >
       <h4>{props.title}</h4>
       <p>{props.image_url}</p>
-      <img title="my-img" src={props.image_url} alt="my-img" />
+      <img src={props.image_url} alt="movie-img" />
       <p>{props.overview}</p>
        {  props.type=="db" ?
          <form className="new-student-form" onSubmit={onFormSubmit}>

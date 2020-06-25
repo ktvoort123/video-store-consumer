@@ -7,33 +7,42 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './Search.css';
 
-
 const Search = (props) => {
-  const [movieSearchTerm, setMovieSearchTerm] = useState([]);
+  const [movieSearchTerm, setMovieSearchTerm] = useState("");
   const [movieResults, setMovieResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const url = "http://localhost:3000";
 
+  const CancelToken = axios.CancelToken;
+  const source = CancelToken.source();
+
+  useEffect(() => {
+    if (movieSearchTerm !== "") {
+      fetchMovies();
+    }
+  }, [movieSearchTerm]);
+
   const onSearchTermChange = (event) => {
     setMovieSearchTerm(event.target.value);
-
-  };
+    source.cancel();
     console.log(movieSearchTerm)
-
-    useEffect(() => {
-      fetchMovies();
-    }, [movieSearchTerm]);
-
-    const fetchMovies = () => {
-      axios.get(url + "/movies?query=" + movieSearchTerm)
-      .then( (response) => {
-        setMovieResults(response.data);
-      })
-      .catch((error) => {
+  };
+  
+  const fetchMovies = () => {
+    axios.get(url + "/movies?query=" + movieSearchTerm, {
+        cancelToken: source.token
+    }).then((response)=>{
+      setMovieResults(response.data);
+    }).catch((error) => {
+      if (axios.isCancel(error)) {
+      console.log('get Request canceled');
+      } else {
         setErrorMessage(error.message);
-      });
-    }
+      }
+    });
+  };
+
 
     const listMovies = () => {
       const processed = movieResults.map(movie => {
