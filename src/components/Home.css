@@ -3,6 +3,7 @@
   max-height: 100vh;
   background-image: url(https://i.imgur.com/erD4nEz.png);
   background-size: 100% auto;
+  background-repeat: no-repeat;
 }
 .big_links {
   margin-top: 20vh;
