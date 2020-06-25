@@ -17,7 +17,7 @@ const Selection = (props) => {
     // console.log(event)
     // console.log("------------------------------------------")
 
-    axios.post(`http://localhost:3000/rentals/${props.selectedMovie}/check-out?customer_id=${props.selectedCustomer.customer_id}&due_date=2021-01-10`)
+    axios.post(`http://localhost:3000/rentals/${props.selectedMovie}/check-out?customer_id=${props.selectedCustomer.customer_id}&due_date=${calcDate()}`)
     .then( (response) => {
       console.log(response);
       props.clearSelectionsCallback();
@@ -25,6 +25,13 @@ const Selection = (props) => {
     .catch((error) => {
       console.log(error.message);
     });
+  }
+
+  const calcDate = () => {
+    let date = new Date();
+    date.setDate(date.getDate() + 7);
+    console.log(date);
+    return date
   }
 
 
@@ -37,16 +44,18 @@ const Selection = (props) => {
           <p>Selected Movie: {props.selectedMovie ? props.selectedMovie : <Link to="/library" className="warning">Select Movie</Link>}</p>
         </Col>
         <Col className="col-md-2">
-
+        <div className="button-container">
+          <div className="clear-button float-right" onClick={props.clearSelectionsCallback}>X Cancel</div>
         { (props.selectedCustomer && props.selectedMovie) &&
-        <div className="triangle-container">
+        
           <button onClick={createRental}>
             <span>Checkout</span>
             <svg height="60" width="45">
 		        <polygon points="0,10 30,30 0,50" className="triangle" />
 	        </svg></button>
-        </div>
+        
         }
+        </div>
           
         </Col>
       </Row> 

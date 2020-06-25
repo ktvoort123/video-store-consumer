@@ -23,7 +23,7 @@
 .selections span {
   margin-right: 5px;
 }
-.triangle-container {
+.button-container {
   margin: 5px auto;
 }
 .triangle{
@@ -31,4 +31,13 @@
   stroke: #0EB13C;
   stroke-width: 6;
   stroke-linejoin: round;
+}
+
+.clear-button {
+  margin-top: -4vh;
+  padding: 4px 0 4px 6px;
+  width: 70px;
+  background-color: rgb(197, 45, 28);
+  border-radius: 4px;
+  color: #fff
 }
