@@ -124,7 +124,7 @@ const App = (props) => {
 
   
   return (
-    <div className={"App container-fluid h-100 d-flex flex-column page__" + findPageName()}>
+    <div className={"App container-fluid d-flex flex-column page__" + findPageName()}>
         <ReactNotification />
         { location.pathname !== "/" &&
         <Header /> 

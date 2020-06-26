@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Home = (props) => {
   
   return (
-    <Row className="home h-100">
+    <Row className="home">
       <Col className="col-md-6">
       <ul className="big_links">
           <li>

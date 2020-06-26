@@ -64,7 +64,7 @@
        url('./fonts/dosis-v17-latin/dosis-v17-latin-800.svg#Dosis') format('svg'); /* Legacy iOS */
 }
 body, html {
-  height: 100%;
+  height: 100vh;
   margin: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
