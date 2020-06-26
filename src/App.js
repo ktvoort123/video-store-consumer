@@ -14,6 +14,11 @@ import {
   useLocation
 } from "react-router-dom";
 
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+
+import { store } from 'react-notifications-component';
+
 
 const App = (props) => {
   const location = useLocation();
@@ -73,6 +78,7 @@ const App = (props) => {
     axios.post(url + "/movies", event)
     .then( (response) => {
       console.log(response);
+      createNotification("Yay!", "Movie successfully added to library.", "success" )
       fetchMovies();
     })
     .catch((error) => {
@@ -94,6 +100,22 @@ const App = (props) => {
     return name;
   };
 
+  const createNotification = (title, message, type) => {
+    store.addNotification({
+      title: title,
+      message: message,
+      type: type,
+      insert: "top",
+      container: "top-right",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: {
+        duration: 5000,
+        onScreen: true
+      }
+    });
+  }
+
   const clearSelections = () => {
     setSelectedMovie(null)
     setSelectedCustomer(null)
@@ -103,6 +125,7 @@ const App = (props) => {
   
   return (
     <div className={"App container-fluid h-100 d-flex flex-column page__" + findPageName()}>
+        <ReactNotification />
         { location.pathname !== "/" &&
         <Header /> 
         }
@@ -117,7 +140,8 @@ const App = (props) => {
         <Selections 
           selectedCustomer={selectedCustomer} 
           selectedMovie={selectedMovie}
-          clearSelectionsCallback={clearSelections}>
+          clearSelectionsCallback={clearSelections}
+          createNotificationCallback={createNotification}>
         </Selections>
         }
     </div>

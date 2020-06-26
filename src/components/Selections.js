@@ -9,6 +9,8 @@ import Row from 'react-bootstrap/Row'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 
+import { store } from 'react-notifications-component';
+
 const Selection = (props) => {
   
 
@@ -19,11 +21,17 @@ const Selection = (props) => {
 
     axios.post(`http://localhost:3000/rentals/${props.selectedMovie}/check-out?customer_id=${props.selectedCustomer.customer_id}&due_date=${calcDate()}`)
     .then( (response) => {
-      console.log(response);
+      console.log("RESPONSE: " + JSON.stringify(response));
+      props.createNotificationCallback("Wonderful", response["data"]["message"], "success" )
+
       props.clearSelectionsCallback();
     })
     .catch((error) => {
-      console.log(error.message);
+      props.createNotificationCallback("Uh Oh!", "No inventory available", "danger" )
+
+      console.log("ERROR:" + JSON.stringify(error));
+      props.clearSelectionsCallback();
+
     });
   }
 
